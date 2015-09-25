@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-6">
+    <div class="radio" ng-repeat='c in main.classes' >
+      <label>
+        <input type="radio" name="classRadios" id='{{c}}Radio' ng-model="main.currentClass" value='{{c}}'>{{c}}
+      </label>
+    </div>
+    <div class="row">
+      <button ng-disabled="!main.currentClass" ng-click="main.record('win')" class="btn btn-success">
+        Win
+      </button>
+      <button ng-disabled="!main.currentClass" ng-click="main.record('loss')" class="btn btn-danger">
+        Loss
+      </button>
+    </div>
+  </div>
+  <div class="col-md-6">
+      <ul class="list-group">
+        <li ng-repeat="h in main.history" class="list-group-item" ng-class="h.result === 'win' ? 'list-group-item-success' : 'list-group-item-danger'">{{h.class}}</li>
+      </ul>
+  </div>
+</div>
+
